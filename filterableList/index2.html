@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="filterInput" placeholder="Search...">
+        <ul>
+            <li class="collection">A</li>
+            <li class="collection-item">
+                <a href="">Abe</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Adam</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Alan</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Anna</a>
+            </li>
+            <li class="collection">B</li>
+            <li class="collection-item">
+                <a href="">Beth</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Bill</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Bob</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Brad</a>
+            </li>
+            <li class="collection">C</li>
+            <li class="collection-item">
+                <a href="">Carrie</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Cathy</a>
+            </li>
+            <li class="collection-item">
+                <a href="">Courtney</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        /* serach에 text 입력하면 li의 text를 filter 하기. */
+        let filterInput = document.getElementById('filterInput');
+
+        
+        function filterName() {
+            /* filterValue가 li의 text에 포함되어 있으면 li 표시 그렇지 않으면 숨김 */
+            var filterValue = document.getElementById('filterInput').value;
+            var ul = document.getElementsByTagName('ul');
+            var li = ul[0].querySelectorAll('li.collection-item');
+            /* li의 a마다 반복 */
+            for(var i=0; i < li.length; i++ ) {
+                var a = li[i].getElementsByTagName('a')[0];
+
+                if(a.innerHTML.toUpperCase().indexOf(filterValue.toUpperCase()) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+
+        filterInput.addEventListener('keyup', filterName);
+    </script>
+</body>
+</html>
