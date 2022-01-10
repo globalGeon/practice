@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Weight convert</h1>
+        <form action="">
+            <div class="form-group">
+                <input type="text" id="lbsInput" placeholder="Enter Pounds...">
+            </div>
+        </form>
+        <div id="output">
+            <div class="card">
+                <div class="card-block">
+                    <h1>grams</h1>
+                    <div id="gramOutput"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-block">
+                    <h1>killograms</h1>
+                    <div id="kgOutput"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-block">
+                    <h1>ounces</h1>
+                    <div id="ozOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* input에 값 입력하면 g,kg,oz를 innerHTML에 대입 */
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('lbsInput').addEventListener('input', function(e) {
+            document.getElementById('output').style.visibility = 'visible';
+            var lbs = e.target.value;
+
+            document.getElementById('gramOutput').innerHTML = lbs / 0.0022046;
+            document.getElementById('kgOutput').innerHTML = lbs / 2.2046;
+            document.getElementById('ozOutput').innerHTML = lbs / 16;
+        })
+    </script>
+</body>
+</html>
